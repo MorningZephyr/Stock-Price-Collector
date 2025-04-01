@@ -1,4 +1,5 @@
-# This is the backend for the project
+# Stock Price Collector - Terminal Version
+This is a terminal version of the application, without the frontend. Install the required libraries and the program can be runned!
 
 ## List of functions
 - get_stock(): 

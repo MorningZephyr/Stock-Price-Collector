@@ -2,26 +2,15 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 import re
-from flask import Flask, requests, jsonify
 
 
-app = Flask(__name__)
+def main():
+    """This will be the core of the project"""
 
-def is_valid_stock(symbol: str) -> bool:
-    """This function checks if a given stock symbol is valid"""
-    stock = yf.Ticker(symbol)
-
-    try:
-        info = stock.info           # This will cause error if the stock isn't valid
-        return True
-    except:
-        return False
-
-@app.route('/api/check_stock', methods=['GET'])
-def check_stock():
-    symbol = requests.args.get('symbol')
-    pass
-
+    stock = get_stock()
+    customized_data = customizer(stock)
+    export_data(customized_data)
+    print_graph(customized_data, stock.info["shortName"])
 
 def get_stock() -> yf.Ticker: #Used try/except
     """Checks if the given stock symbol is valid, then return that ticker object,
@@ -159,4 +148,4 @@ def print_graph(file: pd.DataFrame, name: str) -> None:
     plt.show()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    main()
