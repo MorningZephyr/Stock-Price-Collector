@@ -2,10 +2,12 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 import re
-from flask import Flask, requests, jsonify
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 def is_valid_stock(symbol: str) -> bool:
     """This function checks if a given stock symbol is valid"""
@@ -17,11 +19,19 @@ def is_valid_stock(symbol: str) -> bool:
     except:
         return False
 
+# Setting the route listener
 @app.route('/api/check_stock', methods=['GET'])
 def check_stock():
-    symbol = requests.args.get('symbol')
-    pass
+    symbol = request.args.get('symbol')
+    print(symbol)
+    
+    if not symbol:
+        return jsonify({'error': 'No stock symbol provided'}), 400      # 400 for bad request
 
+    # Check if the stock symbol is valid
+    valid = is_valid_stock(symbol)
+
+    return jsonify({'symbol': symbol, 'valid': valid})
 
 def get_stock() -> yf.Ticker: #Used try/except
     """Checks if the given stock symbol is valid, then return that ticker object,
