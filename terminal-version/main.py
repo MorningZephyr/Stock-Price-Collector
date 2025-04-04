@@ -26,7 +26,7 @@ def get_stock() -> yf.Ticker: #Used try/except
             print("----------------------------------------")
             print()
             return stock
-        except KeyError:
+        except Exception:
             print("--Invalid symbol--")
             print("----------------------------------------")
 
