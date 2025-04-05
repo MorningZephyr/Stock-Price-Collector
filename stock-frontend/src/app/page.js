@@ -22,9 +22,11 @@ export default function Home() {
       const data = await res.json();
 
       if (data.error) {alert(data.error);}
-      else {setResponse('Stock symbol: ${data.symbol} is ${data.valid ? "Valid": "Invalid"}')}
+      // Setting the response to corresponding validity
+      else {setResponse(`You entered ${data.symbol} and its status is ${data.valid ? "valid": "invalid"}`)}
 
     }
+    // Error catching
     catch (error){
       console.error("Error trying to call backend", error);
       setResponse("An error has occurred while checking stock symbol. Please try again");
@@ -51,7 +53,7 @@ export default function Home() {
       >Go
       </button>
 
-      <p>Current input: {symbol}</p>
+      <p>{response}</p>
     </div>
   )
     
