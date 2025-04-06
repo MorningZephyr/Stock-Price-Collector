@@ -32,7 +32,6 @@ export default function StockInput({ onValidSymbol }) {
                 onValidSymbol("");                  // Invalid stock, empty string == False
                 console.log(`Backend response: [${data.symbol}] is an [invalid] stock symbol`);
             }
-
         }
         catch (error){
             if (error.message == "Failed to fetch") {                   // When front can't communicate with back(AKA back is offline)
@@ -42,12 +41,13 @@ export default function StockInput({ onValidSymbol }) {
             }
             console.error("Stack trace:", error.stack);      
         } finally {
-            setIsLoading(false);
+            setIsLoading(false);                // Set the loading status back to false after request is complete
         }
     }
 
     return (
         <div>
+
             <input
                 type="text"
                 placeholder="Enter a stock ticker symbol"
@@ -61,6 +61,7 @@ export default function StockInput({ onValidSymbol }) {
                 className={`m-2 px-4 py-2 font-semibold rounded-lg 
                     ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"}`}
             >{isLoading ? "Loading..." : "Go"}</button> 
+
         </div>
     )
 }

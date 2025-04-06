@@ -9,15 +9,17 @@ export default function({ onSelectedPeriod }) {
 
     return (
         <div>
+
             <label>Select Period</label>
 
+            {/**Updates the value of period when user selects */}
             <select onChange={(e) => onSelectedPeriod(e.target.value)}>
 
                 <option key="default" value="">-- Select Period --</option>
                 {validPeriods.map((p) => (<option key={p} value={p}>{p}</option>))}
 
             </select>
-
+            
         </div>
     );
 }

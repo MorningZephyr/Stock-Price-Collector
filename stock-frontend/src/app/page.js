@@ -10,9 +10,11 @@ export default function Home() {
 
   return (
     <main>
+
       <StockInput onValidSymbol={setValidSymbol}/>
       <DisplayPeriod onSelectedPeriod={setSelectedPeriod}/>
 
+      {/**Display the selected Period */}
       <p>Selected Period: {selectedPeriod}</p>
 
     </main>
