@@ -11,29 +11,38 @@ export default function Home() {
   const handleGoClick = async () => {
     if (!symbol) {
       alert("Please enter a stock symbol");
+
+      // Prevent the function from running the bottom 
       return;
     }
 
-    console.log("Stock symbol entered: ", symbol);
+    console.log("Stock symbol sent to backend: ", symbol);
     
 
     try {
       const res = await fetch(`http://localhost:5000/api/check_stock?symbol=${encodeURIComponent(symbol)}`);
+      
+      if (!res.ok) {
+        throw new Error(`Server returned status ${res.status}`);
+      }
+      
+      
       const data = await res.json();
 
-      if (data.error) {alert(data.error);}
-      // Setting the response to corresponding validity
-      else {setResponse(`You entered ${data.symbol} and its status is ${data.valid ? "valid": "invalid"}`)}
-
+      console.log(`Backend response: ${data.symbol}: ${data.isValid}`)
+      setResponse(`You entered ${data.symbol} and its status is ${data.isValid ? "valid": "invalid"}`)
     }
-    // Error catching
     catch (error){
-      console.error("Error trying to call backend", error);
-      setResponse("An error has occurred while checking stock symbol. Please try again");
+      if (error.message == "Failed to fetch") {                   // When front can't communicate with back(AKA back is offline)
+        console.error("Could not communicate with backend");
+      }else {                                                     // When back is online but error occurred
+        console.error("Fetch failed:", error.message)
+      }
+      console.error("Stack trace:", error.stack);
     }
+
 
   }
-
   return (
     <div>
       <h1 className="text-4xl font-bold">Stock Price Collector</h1>

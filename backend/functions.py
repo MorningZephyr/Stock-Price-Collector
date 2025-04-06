@@ -9,7 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-def is_valid_stock(symbol: str) -> bool:
+def helper_check_stock(symbol: str) -> bool:
     """This function checks if a given stock symbol is valid"""
     stock = yf.Ticker(symbol)
 
@@ -19,19 +19,20 @@ def is_valid_stock(symbol: str) -> bool:
     except:
         return False
 
+def check_stock():
+    pass
+
+
+
 # Setting the route listener
 @app.route('/api/check_stock', methods=['GET'])
-def check_stock():
+def retrieve_stock():
     symbol = request.args.get('symbol')
-    print(symbol)
-    
-    if not symbol:
-        return jsonify({'error': 'No stock symbol provided'}), 400      # 400 for bad request
 
     # Check if the stock symbol is valid
-    valid = is_valid_stock(symbol)
+    valid = helper_check_stock(symbol)
 
-    return jsonify({'symbol': symbol, 'valid': valid})
+    return jsonify({'symbol': symbol, 'isValid': valid})
 
 def get_stock() -> yf.Ticker: #Used try/except
     """Checks if the given stock symbol is valid, then return that ticker object,
@@ -168,5 +169,9 @@ def print_graph(file: pd.DataFrame, name: str) -> None:
     plt.tight_layout()
     plt.show()
 
+def main():
+    """This is for testing purposes"""
+    pass
 if __name__ == "__main__":
     app.run(debug=True)
+    # main()
