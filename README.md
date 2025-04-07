@@ -1,12 +1,31 @@
-# Stock Price Collector
+# 📊 Stock Price Collector
 
-This project is a stock price collector, built around a library called yfinance. After a user enters a stock ticker symbol, they have the options to select how far back the data should include, as well as the time intervals between each stock price data. The data will then be downloaded, and a graph will also be generated. The terminal version of the application is available in respective folders while the web version is currently being developed.
+A full-stack stock data tool built with **Next.js** and **Flask REST API**.  
+Enter a stock symbol, select a period and interval range, download stock data.  
 
-- Frontend: Next.js
-- Backend: Python and Flask
+---
 
+## 🚀 Features
 
+- ✅ Validate stock symbols inputted by user via backend API
+- 📅 Allow custom **periods** and **intervals** for historical data
+- 📈 (Coming soon) Visualize price trends with Matplotlib
+- 🧾 (Coming soon) Download stock data as `.csv` or `.xlsx`
+- 🌐 (Coming soon) **Interactive Website**
+- 🖥️ **Terminal version available** in the `/terminal-version` folder
 
-## Roadmap:
-- Main functions for requesting stock price data is completed, next is to incorporate Flask
-- Currently designing the frontend for the project using Next.js
+---
+
+## 🛠️ Technologies Used
+
+### Frontend:
+- Next.js
+- Tailwind CSS (for styling)
+- React hooks (`useState`)
+
+### Backend:
+- Flask (REST API)
+- yfinance (for stock data)
+- Pandas (for formatting/exports)
+
+---
