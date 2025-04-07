@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-export default function({ onSelectedPeriod }) {
+export default function DisplayPeriod({ onSelectedPeriod }) {
     const validPeriods = [
         "1d", "5d", "1mo", "3mo", "6mo",
         "1y", "2y", "5y", "10y", "ytd", "max"
