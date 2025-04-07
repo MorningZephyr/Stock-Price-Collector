@@ -37,3 +37,14 @@ This was the initial planning diagram I made to structure the project:
 [![Project Planning Diagram](stock-frontend/public/project-outline.jpg)](stock-frontend/public/project-outline.jpg)
 
 ---
+
+## 🧪 Current Progress
+
+The following is the current state of the project, showing:
+- Validating a stock symbol
+- Period and interval selection buttons with highlighted states
+
+[![Current Progress](stock-frontend/public/current-progress.png)](stock-frontend/public/current-progress.png)
+
+---
+
