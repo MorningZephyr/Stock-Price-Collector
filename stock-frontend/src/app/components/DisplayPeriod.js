@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-export default function DisplayPeriod({ onSelectedPeriod }) {
+export default function DisplayPeriod({ period, onSelectedPeriod }) {
     const validPeriods = [
         "1d", "5d", "1mo", "3mo", "6mo",
         "1y", "2y", "5y", "10y", "ytd", "max"
@@ -18,6 +18,7 @@ export default function DisplayPeriod({ onSelectedPeriod }) {
                     key={p}                                 // jsx, need {} to embed js
                     label={p}                               // jsx, need {} to embed js
                     onClick={() => onSelectedPeriod(p)}     // js, don't need {}
+                    isSelected={period === p}               // let user know they selected this button
                 />
             ))}</div>
             

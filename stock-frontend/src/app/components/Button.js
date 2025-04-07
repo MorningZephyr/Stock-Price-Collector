@@ -9,7 +9,6 @@ export default function Button({ label, onClick, isSelected = false }) {
                     ? "bg-blue-600 text-white border-blue-600"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
                 } 
-                
             `}
         >{label}</button>
 

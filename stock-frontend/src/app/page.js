@@ -18,7 +18,7 @@ export default function Home() {
       
 
       <StockInput onValidSymbol={setValidSymbol}/>
-      <DisplayPeriod/>
+      <DisplayPeriod period={selectedPeriod} onSelectedPeriod={setSelectedPeriod}/>
       {/**Only show the DisplayPeriod when user enters valid stock symbol */}
       {validSymbol && <DisplayPeriod onSelectedPeriod={setSelectedPeriod}/>}
       
