@@ -29,3 +29,11 @@ Enter a stock symbol, select a period and interval range, download stock data.
 - Pandas (for formatting/exports)
 
 ---
+
+## 🧠 Planning & Design
+
+This was the initial planning diagram I made to structure the project:
+
+[![Project Planning Diagram](stock-frontend/public/project-outline.jpg)](stock-frontend/public/project-outline.jpg)
+
+---
