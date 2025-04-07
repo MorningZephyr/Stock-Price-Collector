@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Button from "./Button";
 
 export default function({ onSelectedPeriod }) {
     const validPeriods = [
@@ -12,13 +13,13 @@ export default function({ onSelectedPeriod }) {
 
             <label>Select Period</label>
 
-            {/**Updates the value of period when user selects */}
-            <select onChange={(e) => onSelectedPeriod(e.target.value)}>
-
-                <option key="default" value="">-- Select Period --</option>
-                {validPeriods.map((p) => (<option key={p} value={p}>{p}</option>))}
-
-            </select>
+            <div>{validPeriods.map((p) => (
+                <Button
+                    key={p}                                 // jsx, need {} to embed js
+                    label={p}                               // jsx, need {} to embed js
+                    onClick={() => onSelectedPeriod(p)}     // js, don't need {}
+                />
+            ))}</div>
             
         </div>
     );
