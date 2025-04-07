@@ -46,19 +46,21 @@ export default function StockInput({ onValidSymbol }) {
     }
 
     return (
-        <div>
+        
+
+        <div className="flex items-center space-x-2 mt-4 mb-4">
 
             <input
                 type="text"
                 placeholder="Enter a stock ticker symbol"
                 value = {symbol}
                 onChange={(e) => setSymbol(e.target.value)}
-                className="p-2"
+                className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
             <button
                 onClick={handleGoClick}
-                className={`m-2 px-4 py-2 font-semibold rounded-lg 
+                className={`px-4 py-2 font-semibold rounded-lg transition-colors duration-200 
                     ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"}`}
             >{isLoading ? "Loading..." : "Go"}</button> 
 
