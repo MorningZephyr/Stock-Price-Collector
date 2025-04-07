@@ -2,6 +2,7 @@
 import { useState } from "react";
 import StockInput from "./components/StockInput";
 import DisplayPeriod from "./components/DisplayPeriod";
+import DisplayInterval from "./components/DisplayInterval";
 
 export default function Home() {
 
@@ -19,6 +20,8 @@ export default function Home() {
 
       <StockInput onValidSymbol={setValidSymbol}/>
       <DisplayPeriod period={selectedPeriod} onSelectedPeriod={setSelectedPeriod}/>
+      <DisplayInterval />
+    
       {/**Only show the DisplayPeriod when user enters valid stock symbol */}
       {validSymbol && <DisplayPeriod onSelectedPeriod={setSelectedPeriod}/>}
       

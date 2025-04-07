@@ -11,7 +11,7 @@ export default function DisplayPeriod({ period, onSelectedPeriod }) {
     return (
         <div>
 
-            <label>Select Period</label>
+            <label>Select Period: </label>
 
             <div>{validPeriods.map((p) => (
                 <Button
