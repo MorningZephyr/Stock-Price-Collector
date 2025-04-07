@@ -2,8 +2,9 @@
 
 import Button from "./Button";
 
-export default function DisplayInterval() {
-    const intervals = ["1m", "5m", "1d"];
+export default function DisplayInterval({ period, interval, onSelectedInterval }) {
+    const intervals = ["1m","2m","5m","15m","30m","60m","90m","1h",     // intraday
+                        "1d","5d","1wk","1mo","3mo"]                    // interday
 
     return (
         <div className="mt-4">
@@ -13,6 +14,8 @@ export default function DisplayInterval() {
                             <Button
                                 key={i}                                 // jsx, need {} to embed js
                                 label={i}                               // jsx, need {} to embed js
+                                onClick={()=> onSelectedInterval(i)}
+                                isSelected = {interval === i}
                             />
                         ))}</div>
         </div>

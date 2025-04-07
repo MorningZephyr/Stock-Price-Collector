@@ -8,6 +8,7 @@ export default function Home() {
 
   const [validSymbol, setValidSymbol] = useState("");
   const [selectedPeriod, setSelectedPeriod] = useState("");
+  const [selectedInterval, setSelectedInterval] = useState("");
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
@@ -20,7 +21,7 @@ export default function Home() {
 
       <StockInput onValidSymbol={setValidSymbol}/>
       <DisplayPeriod period={selectedPeriod} onSelectedPeriod={setSelectedPeriod}/>
-      <DisplayInterval />
+      <DisplayInterval period={selectedPeriod} interval={selectedInterval} onSelectedInterval={setSelectedInterval}/>
     
       {/**Only show the DisplayPeriod when user enters valid stock symbol */}
       {validSymbol && <DisplayPeriod onSelectedPeriod={setSelectedPeriod}/>}
@@ -28,6 +29,9 @@ export default function Home() {
 
       {/**Display the selected Period */}
       <p>Selected Period: {selectedPeriod}</p>
+
+      {/**Display the selected Interval */}
+      <p>Selected Period: {selectedInterval}</p>
 
     </main>
   )
