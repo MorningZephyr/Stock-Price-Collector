@@ -12,6 +12,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
+
+
       <header>
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
         Stock Price Collector
@@ -20,18 +22,38 @@ export default function Home() {
       
 
       <StockInput onValidSymbol={setValidSymbol}/>
-      <DisplayPeriod period={selectedPeriod} onSelectedPeriod={setSelectedPeriod}/>
-      <DisplayInterval period={selectedPeriod} interval={selectedInterval} onSelectedInterval={setSelectedInterval}/>
-    
-      {/**Only show the DisplayPeriod when user enters valid stock symbol */}
-      {validSymbol && <DisplayPeriod onSelectedPeriod={setSelectedPeriod}/>}
-      
 
+
+      {/**Only show the period options after user inputted a valid stock symbol*/}
+      {validSymbol &&
+
+        <DisplayPeriod 
+          period={selectedPeriod} 
+          onSelectedPeriod={setSelectedPeriod} 
+          resetInterval={setSelectedInterval}
+        />
+
+      }
+
+
+      {/**Only show the interval options after user selected a period */}
+      {selectedPeriod && 
+        
+        <DisplayInterval 
+          period={selectedPeriod} 
+          interval={selectedInterval} 
+          onSelectedInterval={setSelectedInterval}
+        />
+      
+      }
+
+      
       {/**Display the selected Period */}
       <p>Selected Period: {selectedPeriod}</p>
 
       {/**Display the selected Interval */}
-      <p>Selected Period: {selectedInterval}</p>
+      <p>Selected Interval: {selectedInterval}</p>
+
 
     </main>
   )

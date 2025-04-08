@@ -3,14 +3,28 @@
 import Button from "./Button";
 
 export default function DisplayInterval({ period, interval, onSelectedInterval }) {
-    const intervals = ["1m","2m","5m","15m","30m","60m","90m","1h",     // intraday
-                        "1d","5d","1wk","1mo","3mo"]                    // interday
+                       
+    const intervalMap = {
+        "1d": ["1m", "2m", "5m", "15m", "30m", "60m", "90m", "1d"],
+        "5d": ["1m","2m","5m","15m","30m","60m","90m","1h","1d","5d"],
+        "1mo": ["5m","15m","30m","60m","90m","1h","1d","5d","1wk","1mo"],
+        "3mo": ["1h","1d","5d","1wk","1mo","3mo"],
+        "6mo": ["1h","1d","5d","1wk","1mo","3mo"],
+        "1y": ["1h","1d","5d","1wk","1mo","3mo"],
+        "2y": ["1h","1d","5d","1wk","1mo","3mo"],
+        "5y": ["1d","5d","1wk","1mo","3mo"],
+        "10y": ["1d","5d","1wk","1mo","3mo"],
+        "ytd": ["1d","5d","1wk","1mo","3mo"],
+        "max": ["1d","5d","1wk","1mo","3mo"]
+    };
+
+    const validIntervalSet = intervalMap[period];
 
     return (
         <div className="mt-4">
             <label>Select Interval: </label>
 
-            <div>{intervals.map((i) => (
+            <div>{validIntervalSet.map((i) => (
                             <Button
                                 key={i}                                 // jsx, need {} to embed js
                                 label={i}                               // jsx, need {} to embed js
