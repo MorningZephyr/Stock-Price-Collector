@@ -1,6 +1,7 @@
 'use client'
 
 import Button from "./Button";
+import { BACKEND_URL } from "../lib/constants";
 
 export default function DownloadSection({ symbol, period, interval }) {
     
@@ -15,7 +16,7 @@ export default function DownloadSection({ symbol, period, interval }) {
             }
 
             const url =
-                "http://localhost:5000/api/download_data" +
+                `${BACKEND_URL}/api/download_data` +
                 `?symbol=${encodeURIComponent(symbol)}` +
                 `&period=${period}` +
                 `&interval=${interval}`;
@@ -24,8 +25,7 @@ export default function DownloadSection({ symbol, period, interval }) {
 
             window.open(url, "_blank");
 
-        }
-        catch (err) {
+        } catch (err) {
 
             console.error("Download failed:", err);
 

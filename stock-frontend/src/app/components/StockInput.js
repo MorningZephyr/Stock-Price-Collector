@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { BACKEND_URL } from "../lib/constants";
 
 export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, resetSymbol }) {
 
@@ -22,7 +23,7 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
 
         try {
             
-            const res =  await fetch(`http://localhost:5000/api/check_stock?symbol=${encodeURIComponent(symbol)}`);
+            const res =  await fetch(`${BACKEND_URL}/api/check_stock?symbol=${encodeURIComponent(symbol)}`);
 
             if (!res.ok) throw new Error(`Server returned status ${res.status}`);
             
