@@ -34,7 +34,7 @@ Enter a stock symbol, select a period and interval range, download stock data.
 
 This was the initial planning diagram I made to structure the project:
 
-[![Project Planning Diagram](stock-frontend/public/project-outline.jpg)](stock-frontend/public/project-outline.jpg)
+[![Project Planning Diagram](stock-frontend\public\outlines\project-outline-1.jpg)](stock-frontend\public\outlines\project-outline-1.jpg)
 
 ---
 
