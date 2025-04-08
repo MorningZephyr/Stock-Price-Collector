@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 
-export default function StockInput({ onValidSymbol }) {
+export default function StockInput({ onValidSymbol, resetPeriod,resetInterval }) {
     const [symbol, setSymbol] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -41,7 +41,9 @@ export default function StockInput({ onValidSymbol }) {
             }
             console.error("Stack trace:", error.stack);      
         } finally {
-            setIsLoading(false);                // Set the loading status back to false after request is complete
+            setIsLoading(false);            // Set the loading status back to false after request is complete
+            resetPeriod("")                 // Reset for new stock
+            resetInterval("")               // Reset for new stock
         }
     }
 

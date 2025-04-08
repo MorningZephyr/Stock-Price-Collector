@@ -21,7 +21,11 @@ export default function Home() {
       </header>
       
 
-      <StockInput onValidSymbol={setValidSymbol}/>
+      <StockInput 
+        onValidSymbol={setValidSymbol} 
+        resetPeriod={setSelectedPeriod}
+        resetInterval={setSelectedInterval}
+      />
 
 
       {/**Only show the period options after user inputted a valid stock symbol*/}
