@@ -41,9 +41,7 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
             
             }
 
-        }
-
-        catch (error){
+        } catch (error){
 
             if (error.message == "Failed to fetch") {                   // When front can't communicate with back(AKA back is offline)
                 
