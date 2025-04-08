@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 
-export default function StockInput({ onValidSymbol, resetPeriod,resetInterval }) {
+export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, resetSymbol }) {
 
     const [symbol, setSymbol] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -57,6 +57,7 @@ export default function StockInput({ onValidSymbol, resetPeriod,resetInterval })
             
             }
             
+            resetSymbol("");                // Reset if error communicating with backend
             console.error("Stack trace:", error.stack);
                   
         } finally {
@@ -94,5 +95,5 @@ export default function StockInput({ onValidSymbol, resetPeriod,resetInterval })
         </div>
 
     )
-    
+
 }

@@ -25,6 +25,7 @@ export default function Home() {
         onValidSymbol={setValidSymbol} 
         resetPeriod={setSelectedPeriod}
         resetInterval={setSelectedInterval}
+        resetSymbol = {setValidSymbol}
       />
 
 
