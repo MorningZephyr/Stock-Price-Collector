@@ -5,9 +5,12 @@ from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import io
 
-
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/")
+def home():
+    return "Hello from Flask! Backend is running"
 
 def helper_check_stock(symbol: str) -> bool:
     """This function checks if a given stock symbol is valid"""
@@ -59,10 +62,6 @@ def download_stock():
         
     except Exception as e:
         return f"Error generating CSV: {str(e)}", 500       # Server error
-
-@app.route("/")
-def home():
-    return "Hello from Flask! Backend is running"
 
 def main():
     """This is for testing purposes"""

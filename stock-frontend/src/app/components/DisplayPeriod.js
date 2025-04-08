@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+
 import Button from "./Button";
 
 export default function DisplayPeriod({ period, onSelectedPeriod, resetInterval }) {
@@ -9,6 +9,7 @@ export default function DisplayPeriod({ period, onSelectedPeriod, resetInterval 
     ];
 
     return (
+
         <div>
 
             <label>Select Period: </label>
@@ -26,5 +27,7 @@ export default function DisplayPeriod({ period, onSelectedPeriod, resetInterval 
             ))}</div>
             
         </div>
+
     );
+    
 }

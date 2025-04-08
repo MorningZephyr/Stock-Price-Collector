@@ -12,7 +12,6 @@ Enter a stock symbol, select a period and interval range, download stock data.
 - 📈 (Coming soon) Visualize price trends with Matplotlib
 - 🧾 (Coming soon) Download stock data as `.csv` or `.xlsx`
 - 🌐 (Coming soon) **Interactive Website**
-- 🖥️ **Terminal version available** in the `/terminal-version` folder
 
 ---
 
