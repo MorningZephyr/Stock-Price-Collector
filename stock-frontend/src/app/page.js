@@ -3,6 +3,7 @@ import { useState } from "react";
 import StockInput from "./components/StockInput";
 import DisplayPeriod from "./components/DisplayPeriod";
 import DisplayInterval from "./components/DisplayInterval";
+import Button from "./components/Button";
 
 export default function Home() {
 
@@ -50,6 +51,18 @@ export default function Home() {
           onSelectedInterval={setSelectedInterval}
         />
       
+      }
+
+      {/**Only show download button after user selected interval*/}
+      {selectedInterval &&
+
+        <div className="pt-5 pb-5">
+          <Button
+            label="Download"
+            variant="download"
+          />
+        </div>
+
       }
 
       
