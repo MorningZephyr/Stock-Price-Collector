@@ -90,7 +90,7 @@ export default function Home() {
             </p>
 
             <p className="text-xs text-purple-700 mb-2">
-              Note: The backend may take a few seconds to wake up if it's been inactive. Thank you for your patience!
+              Note: The backend may take a few seconds to wake up if it&apos;s been inactive. Thank you for your patience!
             </p>
           
           </div>
