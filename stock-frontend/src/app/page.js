@@ -30,14 +30,21 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
 
 
-      <header className="mb-10">
+      <header className="mb-2">
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
         Stock Price Collector
         </h1>
       </header>
-      
-    
-      {!backendReady && <p className="text-gray-500">Waking up backend...</p>}
+
+
+        <a
+          href="https://github.com/MorningZephyr/Stock-Price-Collector"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-blue-600 hover:underline"
+        >
+          🔗 Check out source on Github!
+        </a>
 
 
       <StockInput 
@@ -46,6 +53,9 @@ export default function Home() {
         resetInterval={setSelectedInterval}
         resetSymbol = {setValidSymbol}
       />
+
+
+      {!backendReady && <p className="text-gray-500">Waking up backend...</p>}
 
 
       {/**Only show the period options after user inputted a valid stock symbol*/}

@@ -78,13 +78,13 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
                 placeholder="Enter a stock ticker symbol"
                 value = {symbol}
                 onChange={(e) => setSymbol(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="px-6 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
             <button
                 onClick={handleGoClick}
                 className={
-                    `px-4 py-2 font-semibold rounded-lg transition-colors duration-200 
+                    `px-4 py-3 font-semibold rounded-lg transition-colors duration-200 
                     ${isLoading 
                         ? "bg-gray-400 cursor-not-allowed" 
                         : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
