@@ -6,8 +6,11 @@ Enter a stock symbol, select a period and interval range, download stock data.
 ---
 
 ## Interactive Website
-[Check out the live website here!](https://stock-price-collector.vercel.app/)
+Check out the live website [here!](https://stock-price-collector.vercel.app/)
+Sneak peak at the view:
 
+
+[![Website](stock-frontend/public/website-picture.png)](stock-frontend/public/website-picture.png)
 ---
 
 ## 🚀 Features
@@ -41,7 +44,7 @@ This was the initial planning diagram I made to structure the project:
 
 ---
 
-## 🧪 Current Progress
+<!-- ## 🧪 Current Progress
 
 The following is the current state of the project, showing:
 - Validating a stock symbol
@@ -49,5 +52,5 @@ The following is the current state of the project, showing:
 
 [![Current Progress](stock-frontend/public/current-progress.png)](stock-frontend/public/current-progress.png)
 
----
+--- -->
 
