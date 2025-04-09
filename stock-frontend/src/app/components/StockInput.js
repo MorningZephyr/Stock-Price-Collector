@@ -78,7 +78,7 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
                 placeholder="Enter a stock ticker symbol"
                 value = {symbol}
                 onChange={(e) => setSymbol(e.target.value)}
-                className="px-6 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="px-8 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
             <button

@@ -85,11 +85,13 @@ export default function Home() {
 
           <div className="max-w-xs bg-gradient-to-r from-blue-100 to-purple-100 border border-purple-300 text-purple-800 px-4 py-2 rounded-lg text-sm mb-4 max-w-lg text-center shadow-sm">
 
-            <p className="text-sm text-purple-700 animate-pulse mb-2">
-              Waking up backend<span className="dot-animate">...</span>
+            <p className="text-xs text-purple-700 animate-pulse mb-2">
+              Waking up backend
             </p>
-            
-            Note: The backend may take a few seconds to wake up if it's been inactive.
+
+            <p className="text-xs text-purple-700 mb-2">
+              Note: The backend may take a few seconds to wake up if it's been inactive. Thank you for your patience!
+            </p>
           
           </div>
 
