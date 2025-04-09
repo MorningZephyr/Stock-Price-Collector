@@ -1,16 +1,17 @@
 # 📊 Stock Price Collector
 
-A full-stack stock data tool built with **Next.js** and **Flask REST API**.  
-Enter a stock symbol, select a period and interval range, download stock data.  
+A full-stack, user-friendly tool for exploring stock data — offering interactivity, instant feedback, and customizable download  
 
 ---
 
-## Interactive Website
-Check out the live website [here!](https://stock-price-collector.vercel.app/)
+## 🌐 Interactive Website
+
+Check out the live website here:  
+👉 [Take me there!](https://stock-price-collector.vercel.app/)
+
 Sneak peak at the view:
-
-
 [![Website](stock-frontend/public/website-picture.png)](stock-frontend/public/website-picture.png)
+
 ---
 
 ## 🚀 Features
@@ -22,17 +23,32 @@ Sneak peak at the view:
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️  How It Works
 
-### Frontend:
-- Next.js
-- Tailwind CSS (for styling)
-- React hooks (`useState`)
+### 🧩 Frontend (Next.js + Tailwind)
 
-### Backend:
-- Flask (REST API)
-- yfinance (for stock data)
-- Pandas (for formatting/exports)
+The frontend is built using **Next.js (App Router)** and styled with **Tailwind CSS**.  
+It features a clean, responsive interface where users can:
+
+- Enter a stock ticker symbol (e.g. AAPL, TSLA)
+- Select a time **period** and **interval** using interactive button components
+- Get instant feedback on symbol validity
+- Download stock price data as a `.csv` file
+
+The app is fully responsive and deployed to **Vercel**.
+
+---
+
+### 🔌 Backend (Flask + yFinance)
+
+The backend is a **Flask-based REST API**, deployed to **Render**, and handles:
+
+- **Validating stock symbols** by querying `yfinance.Ticker.info`
+- **Fetching historical stock data** based on selected period & interval
+- **Generating downloadable CSVs** on demand, using in-memory file streams (`BytesIO`)
+
+CORS is enabled to allow seamless communication with the frontend.
+
 
 ---
 
