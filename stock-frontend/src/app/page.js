@@ -5,6 +5,7 @@ import DisplayPeriod from "./components/DisplayPeriod";
 import DisplayInterval from "./components/DisplayInterval";
 import DownloadSection from "./components/DownloadSection";
 import { BACKEND_URL } from "./lib/constants";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
 
@@ -37,14 +38,41 @@ export default function Home() {
       </header>
 
 
+      <div className="mt-6 flex gap-2">
+
+
         <a
           href="https://github.com/MorningZephyr/Stock-Price-Collector"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-blue-600 hover:underline"
+          className="text-sm text-blue-600 hover:underline mr-5"
         >
-          🔗 Check out source on Github!
+          🔗 Source Code
         </a>
+
+
+        <p className="text-sm font-semibold text-gray-700 mb-2">Find me on:</p>
+        <a
+          href="https://github.com/MorningZephyr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 hover:text-black"
+        >
+          <FaGithub size={24} />
+        </a>
+
+
+        <a
+          href="https://www.linkedin.com/in/zhen-tao-pan-4045a52a0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800"
+        >
+          <FaLinkedin size={24} />
+        </a>
+
+
+      </div>
 
 
       <StockInput 
