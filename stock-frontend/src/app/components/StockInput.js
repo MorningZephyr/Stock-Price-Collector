@@ -71,7 +71,7 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
 
     return (
         
-        <div className="flex items-center space-x-2 mt-4 mb-4">
+        <div className="flex items-center space-x-4 mt-4 mb-4">
 
             <input
                 type="text"

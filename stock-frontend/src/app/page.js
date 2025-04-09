@@ -40,7 +40,6 @@ export default function Home() {
 
       <div className="mt-6 flex gap-2">
 
-
         <a
           href="https://github.com/MorningZephyr/Stock-Price-Collector"
           target="_blank"
@@ -49,7 +48,6 @@ export default function Home() {
         >
           🔗 Source Code
         </a>
-
 
         <p className="text-sm font-semibold text-gray-700 mb-2">Find me on:</p>
         <a
@@ -61,7 +59,6 @@ export default function Home() {
           <FaGithub size={24} />
         </a>
 
-
         <a
           href="https://www.linkedin.com/in/zhen-tao-pan-4045a52a0/"
           target="_blank"
@@ -70,7 +67,6 @@ export default function Home() {
         >
           <FaLinkedin size={24} />
         </a>
-
 
       </div>
 
@@ -83,7 +79,23 @@ export default function Home() {
       />
 
 
-      {!backendReady && <p className="text-gray-500">Waking up backend...</p>}
+      {!backendReady && 
+
+        <div>
+
+          <div className="max-w-xs bg-gradient-to-r from-blue-100 to-purple-100 border border-purple-300 text-purple-800 px-4 py-2 rounded-lg text-sm mb-4 max-w-lg text-center shadow-sm">
+
+            <p className="text-sm text-purple-700 animate-pulse mb-2">
+              Waking up backend<span className="dot-animate">...</span>
+            </p>
+            
+            Note: The backend may take a few seconds to wake up if it's been inactive.
+          
+          </div>
+
+        </div>
+      
+      }
 
 
       {/**Only show the period options after user inputted a valid stock symbol*/}
