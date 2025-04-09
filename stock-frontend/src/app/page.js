@@ -30,7 +30,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
 
 
-      <header>
+      <header className="mb-10">
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
         Stock Price Collector
         </h1>
@@ -81,13 +81,6 @@ export default function Home() {
         />
 
       }
-
-      
-      {/**Display the selected Period */}
-      <p>Selected Period: {selectedPeriod}</p>
-
-      {/**Display the selected Interval */}
-      <p>Selected Interval: {selectedInterval}</p>
 
 
     </main>

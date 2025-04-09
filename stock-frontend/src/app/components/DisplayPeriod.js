@@ -10,9 +10,11 @@ export default function DisplayPeriod({ period, onSelectedPeriod, resetInterval 
 
     return (
 
-        <div>
+        <div className="flex flex-wrap gap-2  max-w-md">
 
-            <label>Select Period: </label>
+            <label className="text-lg font-semibold text-blue-600 mb-2">
+            Select Period
+            </label>
 
             <div>{validPeriods.map((p) => (
                 <Button
