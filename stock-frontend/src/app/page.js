@@ -1,15 +1,30 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StockInput from "./components/StockInput";
 import DisplayPeriod from "./components/DisplayPeriod";
 import DisplayInterval from "./components/DisplayInterval";
 import DownloadSection from "./components/DownloadSection";
+import { BACKEND_URL } from "./lib/constants";
 
 export default function Home() {
 
   const [validSymbol, setValidSymbol] = useState("");
   const [selectedPeriod, setSelectedPeriod] = useState("");
   const [selectedInterval, setSelectedInterval] = useState("");
+
+  const [backendReady, setBackendReady] = useState(false); 
+
+  // Immediately send request to backend to wake it up
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/`)
+      .then(res => res.text())
+      .then(data => console.log("Backend pinged:", data))
+      .then(() => setBackendReady(true))
+      .catch(err => console.error("Backend not reachable:", err));
+  
+      return () => clearTimeout(timer);
+
+  }, []); 
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
@@ -21,6 +36,9 @@ export default function Home() {
         </h1>
       </header>
       
+    
+      {!backendReady && <p className="text-gray-500">Waking up backend...</p>}
+
 
       <StockInput 
         onValidSymbol={setValidSymbol} 
