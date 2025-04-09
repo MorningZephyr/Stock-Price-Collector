@@ -5,13 +5,17 @@ Enter a stock symbol, select a period and interval range, download stock data.
 
 ---
 
+## Interactive Website
+[Check out the live website here!](https://stock-price-collector.vercel.app/)
+
+---
+
 ## 🚀 Features
 
 - ✅ Validate stock symbols inputted by user via backend API
 - 📅 Allow custom **periods** and **intervals** for historical data
+- 🧾 Download stock data as `.csv`
 - 📈 (Coming soon) Visualize price trends with Matplotlib
-- 🧾 (Coming soon) Download stock data as `.csv` or `.xlsx`
-- 🌐 (Coming soon) **Interactive Website**
 
 ---
 
