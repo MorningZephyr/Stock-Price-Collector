@@ -8,9 +8,10 @@ import io
 app = Flask(__name__)
 CORS(app)
 
+# Home, Sweet Home
 @app.route("/")
 def home():
-    return "Hello from Flask! Backend is running"
+    return "Hello, World! Backend is running"
 
 def helper_check_stock(symbol: str) -> bool:
     """This function checks if a given stock symbol is valid"""
@@ -32,13 +33,13 @@ def retrieve_stock():
 
     return jsonify({'symbol': symbol, 'isValid': valid})
 
+# Downloading the data
 @app.route('/api/download_data', methods=['GET'])
 def download_stock():
     symbol = request.args.get('symbol')
     period = request.args.get('period')
     interval = request.args.get('interval')
 
-    print(f"Download request recieved: {symbol}, {period}, {interval}")
     if not symbol or not period or not interval:
         return "Missing parameters", 400                    # Bad request
     
@@ -62,6 +63,27 @@ def download_stock():
         
     except Exception as e:
         return f"Error generating CSV: {str(e)}", 500       # Server error
+
+# Fetching data for viewing in frontend
+@app.route('/api/view_data', methods=['GET'])
+def fetch_data():
+    symbol = request.args.get('symbol')
+    period = request.args.get('period')
+    interval = request.args.get('interval')
+
+    if not symbol or not period or not interval:
+        return "Missing parameters", 400                    # Bad request
+    
+    try:
+        df = yf.download(symbol, period=period, interval=interval)
+
+        if df.empty:
+            return jsonify({'error': 'No data available'}), 404
+
+        return df.reset_index().to_json(orient="records")
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500              # Server error
 
 def main():
     """This is for testing purposes"""
