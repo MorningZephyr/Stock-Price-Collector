@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import io
+import requests
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -15,13 +17,23 @@ def home():
 
 def helper_check_stock(symbol: str) -> bool:
     """This function checks if a given stock symbol is valid"""
-    stock = yf.Ticker(symbol)
 
-    try:
-        info = stock.info           # This will cause error if the stock isn't valid
-        return True
-    except:
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+    params = {
+        "interval" : "1d",
+        "range" : "1d"
+    }
+    headers = {
+       "User-Agent": "Mozilla/5.0" 
+    }
+
+    response = requests.get(url, params=params, headers=headers)
+    response = response.json()["chart"]["error"]
+
+    if response is not None:
         return False
+
+    return True
 
 # Setting the route listener
 @app.route('/api/check_stock', methods=['GET'])
@@ -44,10 +56,50 @@ def download_stock():
         return "Missing parameters", 400                    # Bad request
     
     try:
-        df = yf.download(symbol, period=period, interval=interval)
+        url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+        params = {
+            "interval": interval,  # e.g., 1d, 1m, etc.
+            "range": period        # e.g., 1d, 5d, 1mo, etc.
+        }
+        headers = {
+            "User-Agent": "Mozilla/5.0"  # Important to prevent 403s
+        }
 
-        if df.empty:
-            return "No data available", 404                 # Not found
+        response = requests.get(url, params=params, headers=headers)
+
+        if response.status_code != 200:
+            print(f"Error fetching data: {response.status_code}")
+            return None
+    
+
+        data = response.json()
+
+
+##########################################################################
+        result = data["chart"]["result"][0]
+
+        timestamps = result["timestamp"]
+        quotes = result["indicators"]["quote"][0]
+        adj_close = result["indicators"].get("adjclose", [None] * len(timestamps))
+
+        if adj_close[0] is not None:
+            adj_close = adj_close[0]["adjclose"]
+
+        dates = [datetime.fromtimestamp(ts) for ts in timestamps]
+
+        df = pd.DataFrame({
+            "Open" : quotes["open"],
+            "High" : quotes["high"],
+            "Low" : quotes["low"],
+            "Close" : quotes["close"],
+            "Adj Close" : adj_close,
+            "Volume" : quotes["volume"]
+        }, index= pd.to_datetime(dates))
+
+        df.index.name = "Date"
+
+##########################################################################
+
         
         # A buffer is a temporary area in memory used for facilitate the transfer of data from one place to another
         buffer = io.BytesIO()                 # in-memory string buffer;
@@ -87,8 +139,9 @@ def fetch_data():
 
 def main():
     """This is for testing purposes"""
+    print(helper_check_stock("msft"))
     pass
 
 if __name__ == "__main__":
     app.run(debug=True)
-    # main()
+    #main()

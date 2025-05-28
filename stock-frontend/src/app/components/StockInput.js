@@ -90,14 +90,6 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
                         : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
                     }`}
             >{isLoading ? "Loading..." : "Go"}</button> 
-            <div style={{
-                border: '4px dashed #ff4500',
-                backgroundColor: '#fff0e0',
-                padding: '30px'
-            }}>
-                <h1 style={{ fontSize: '48px', color: '#cc0000' }}>Site Temporarily Down</h1>
-                <p style={{ fontSize: '24px', color: '#333' }}>Migrating from yfinance API to custom built service. Please wait for the upcoming days!</p>
-            </div>
         </div>
 
     )
