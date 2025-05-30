@@ -15,7 +15,7 @@ export default function DisplayInterval({ period, interval, onSelectedInterval }
         "5y": ["1d","5d","1wk","1mo","3mo"],
         "10y": ["1d","5d","1wk","1mo","3mo"],
         "ytd": ["1d","5d","1wk","1mo","3mo"],
-        "max": ["1d","5d","1wk","1mo","3mo"]
+        "max": ["1mo","3mo"]
     };
 
     const validIntervalSet = intervalMap[period];
