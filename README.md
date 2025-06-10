@@ -39,15 +39,14 @@ The app is fully responsive and deployed to **Vercel**.
 
 ---
 
-### 🔌 Backend (Flask + yFinance)
+### 🔌 Backend (Flask)
 
 The backend is a **Flask-based REST API**, deployed to **Render**, and handles:
 
-- **Validating stock symbols** by querying `yfinance.Ticker.info`
-- **Fetching historical stock data** based on selected period & interval
+- **Validating stock symbols** through lookup in Yahoo Finance
+- **Fetching historical stock data** based on selected period & interval through custom HTTP requests
 - **Generating downloadable CSVs** on demand, using in-memory file streams (`BytesIO`)
 
-CORS is enabled to allow seamless communication with the frontend.
 
 
 ---
