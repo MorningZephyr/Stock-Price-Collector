@@ -37,9 +37,9 @@ export default function DownloadSection({ symbol, period, interval }) {
 
         <div className="pt-5 pb-5">
             <Button
-            label="Download"
-            variant="download"
-            onClick={handleDownloadClick}
+                label="Download"
+                variant="download"
+                onClick={handleDownloadClick}
             />
         </div>
     

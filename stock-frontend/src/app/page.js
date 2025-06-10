@@ -22,10 +22,7 @@ export default function Home() {
       .then(data => console.log("Backend pinged:", data))
       .then(() => setBackendReady(true))
       .catch(err => console.error("Backend not reachable:", err));
-  
-      return () => clearTimeout(timer);
-
-  }, []); 
+  }, []);   // Empty array => depends on nothing, so the callback is only runned once 
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
@@ -39,13 +36,12 @@ export default function Home() {
 
 
       <div className="mt-6 flex gap-2">
-
+        
         <a
           href="https://github.com/MorningZephyr/Stock-Price-Collector"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-blue-600 hover:underline mr-5"
-        >
+          className="text-sm text-blue-600 hover:underline mr-5">
           🔗 Source Code
         </a>
 
@@ -54,8 +50,7 @@ export default function Home() {
           href="https://github.com/MorningZephyr"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 hover:text-black"
-        >
+          className="text-gray-600 hover:text-black">
           <FaGithub size={24} />
         </a>
 
@@ -63,8 +58,7 @@ export default function Home() {
           href="https://www.linkedin.com/in/zhen-tao-pan-4045a52a0/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800"
-        >
+          className="text-blue-600 hover:text-blue-800">
           <FaLinkedin size={24} />
         </a>
 

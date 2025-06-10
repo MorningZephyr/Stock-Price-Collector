@@ -2,8 +2,7 @@
 
 export default function Button({ label, onClick, isSelected = false, variant = "default" }) {
     
-    const baseStyle = //"w-18 h-10 px-2 py-1 rounded-md font-medium cursor-pointer shadow-sm transition-all duration-200 ease-in-out transform hover:scale-105 active:scale-95";
-                    "w-18 h-12 px-4 py-2 rounded-md font-medium cursor-pointer shadow-sm transition-transform duration-150 ease-in-out transform hover:scale-102 active:scale-98";
+    const baseStyle = "w-18 h-12 px-4 py-2 rounded-md font-medium cursor-pointer shadow-sm transition-transform duration-150 ease-in-out transform hover:scale-102 active:scale-98";
     const variants = {
 
         "default" : isSelected

@@ -21,21 +21,23 @@ export default function DisplayInterval({ period, interval, onSelectedInterval }
     const validIntervalSet = intervalMap[period];
 
     return (
-        <div className="flex flex-wrap gap-2  max-w-md">
-            
-            <label className="text-lg font-semibold text-blue-600 mb-2">
+
+        <>
+            <label className="block text-lg font-semibold text-blue-600 mb-4">
             Select Interval
             </label>
 
-            <div>{validIntervalSet.map((i) => (
-                            <Button
-                                key={i}                                 // jsx, need {} to embed js
-                                label={i}                               // jsx, need {} to embed js
-                                onClick={()=> onSelectedInterval(i)}
-                                isSelected = {interval === i}
-                            />
-                        ))}</div>
-        </div>
+            <div className="flex flex-wrap gap-2  max-w-md">
+                <div>{validIntervalSet.map((i) => (
+                    <Button
+                        key={i}                                 // jsx, need {} to embed js
+                        label={i}                               // jsx, need {} to embed js
+                        onClick={()=> onSelectedInterval(i)}
+                        isSelected = {interval === i}
+                    />
+                ))}</div>
+            </div>
+        </>
     )
 
 }

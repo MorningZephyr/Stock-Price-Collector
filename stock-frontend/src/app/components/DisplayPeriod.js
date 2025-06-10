@@ -9,26 +9,25 @@ export default function DisplayPeriod({ period, onSelectedPeriod, resetInterval 
     ];
 
     return (
-
-        <div className="flex flex-wrap gap-2  max-w-md">
-
-            <label className="text-lg font-semibold text-blue-600 mb-2">
+        <>
+            <label className="block text-lg font-semibold text-blue-600 mb-4">
             Select Period
             </label>
 
-            <div>{validPeriods.map((p) => (
-                <Button
-                    key={p}                                 // jsx, need {} to embed js
-                    label={p}                               // jsx, need {} to embed js
-                    onClick={() => {
-                        onSelectedPeriod(p);
-                        resetInterval("");                  // reset the interval selection
-                    }}
-                    isSelected={period === p}               // let user know they selected this button
-                />
-            ))}</div>
-            
-        </div>
+            <div className="flex flex-wrap gap-2  max-w-md">
+                <div>{validPeriods.map((p) => (
+                    <Button
+                        key={p}                                 // jsx, need {} to embed js
+                        label={p}                               // jsx, need {} to embed js
+                        onClick={() => {
+                            onSelectedPeriod(p);
+                            resetInterval("");                  // reset the interval selection
+                        }}
+                        isSelected={period === p}               // let user know they selected this button
+                    />
+                ))}</div>
+            </div>
+        </>
 
     );
     
