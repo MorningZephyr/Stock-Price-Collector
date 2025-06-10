@@ -10,10 +10,8 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
     const handleGoClick = async () => {
 
         if (!symbol) {
-
             alert("Please enter a stock symbol");
             return;
-        
         }
 
         if (isLoading) return;          // Prevent users from spamming when request still processing
@@ -70,28 +68,33 @@ export default function StockInput({ onValidSymbol, resetPeriod, resetInterval, 
     }
 
     return (
-        
-        <div className="flex items-center space-x-4 mt-4 mb-4">
+        <>
+            <label className="block text-lg font-semibold text-blue-600 mb-4 mt-4">
+            Enter Stock Symbol
+            </label>
 
-            <input
-                type="text"
-                placeholder="Enter a stock ticker symbol"
-                value = {symbol}
-                onChange={(e) => setSymbol(e.target.value)}
-                className="px-8 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
+            <div className="flex items-center space-x-4 mt-4 mb-4">
 
-            <button
-                onClick={handleGoClick}
-                className={
-                    `px-4 py-3 font-semibold rounded-lg transition-colors duration-200 
-                    ${isLoading 
-                        ? "bg-gray-400 cursor-not-allowed" 
-                        : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
-                    }`}
-            >{isLoading ? "Loading..." : "Go"}</button> 
-        </div>
+                <input
+                    type="text"
+                    placeholder="MSFT, AAPL, etc..."
+                    value = {symbol}
+                    onChange={(e) => setSymbol(e.target.value)}
+                    className="px-8 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
 
+                <button
+                    onClick={handleGoClick}
+                    className={
+                        `px-4 py-3 font-semibold rounded-lg transition-colors duration-200 
+                        ${isLoading 
+                            ? "bg-gray-400 cursor-not-allowed" 
+                            : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
+                        }`}
+                >{isLoading ? "Loading..." : "Go"}</button> 
+                
+            </div>
+        </>                
     )
 
 }
